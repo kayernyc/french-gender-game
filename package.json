@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/index.ts",
+  "bin": {
+    "@yourname/french-gender-game": "build/index.js",
+    "french-gender-game": "build/index.js"
+  },
   "scripts": {
     "build": "rimraf ./build && tsc && chmod +x ./build/index.js",
     "lint": "eslint . --ext .ts",
