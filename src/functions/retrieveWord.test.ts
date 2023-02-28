@@ -1,5 +1,6 @@
 import { describe, expect, it } from '@jest/globals';
-import { FrenchWordRecord, retrieveWord } from "./retrieveWord";
+import { FrenchWordRecord } from '../types/FrenchWordRecord';
+import { retrieveWord } from "./retrieveWord";
 
 const emptyWordRecord: FrenchWordRecord[] = [];
 const onewordRecord: FrenchWordRecord[] = [
@@ -13,7 +14,6 @@ const onewordRecord: FrenchWordRecord[] = [
 
 describe('RetrieveWord', () => {
   it('throws an error if there is no word array', () => {
-
     expect(() => {
       retrieveWord(emptyWordRecord)
     }).toThrow();
@@ -29,3 +29,37 @@ describe('RetrieveWord', () => {
     });
   });
 });
+
+describe('RetrieveWord', () => {
+  beforeEach(() => {
+    jest.spyOn(global.Math, 'random').mockReturnValue(.01);
+  });
+
+  afterEach(() => {
+    jest.spyOn(global.Math, 'random').mockRestore();
+  })
+
+  it('returns the complete word object', () => {
+    const result = retrieveWord();
+    expect(result).toEqual({
+      english: 'family',
+      explanation: '',
+      exceptions: [
+        'braille',
+        'gorille',
+        'intervalle',
+        'mille',
+        'portefeuille',
+        'vaudeville',
+        'vermicelle',
+        'violoncelle',
+      ],
+      french: 'famille',
+      gender: 1,
+      genderRuleKey: 42,
+      exception: false,
+      rule: 'lle'
+    });
+  });
+});
+

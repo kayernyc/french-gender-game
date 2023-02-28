@@ -1,0 +1,30 @@
+[
+  {
+    "english": "critic",
+    "french": "critique",
+    "gender": 0,
+    "genderRuleKey": 5,
+    "exception": false
+  },
+  {
+    "english": "affair",
+    "french": "affaire",
+    "gender": 0,
+    "genderRuleKey": 39,
+    "exception": true
+  },
+  {
+    "english": "judge",
+    "french": "juge",
+    "gender": 0,
+    "genderRuleKey": 67,
+    "exception": false
+  },
+  {
+    "english": "detective",
+    "french": "détective",
+    "gender": 0,
+    "genderRuleKey": 67,
+    "exception": false
+  }
+]
