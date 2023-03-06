@@ -1,6 +1,6 @@
 import { describe, expect, it } from '@jest/globals';
-import { FrenchWordRecord } from '../types/FrenchWordRecord';
-import { retrieveWord } from "./retrieveWord";
+import { FrenchWordRecord } from '../types/FrenchWordRecord.js';
+import { retrieveWord } from "./retrieveWord.js";
 
 const emptyWordRecord: FrenchWordRecord[] = [];
 const onewordRecord: FrenchWordRecord[] = [
@@ -12,7 +12,7 @@ const onewordRecord: FrenchWordRecord[] = [
   }
 ]
 
-describe('RetrieveWord', () => {
+describe('retrieveWord', () => {
   it('throws an error if there is no word array', () => {
     expect(() => {
       retrieveWord(emptyWordRecord)
@@ -30,7 +30,7 @@ describe('RetrieveWord', () => {
   });
 });
 
-describe('RetrieveWord', () => {
+describe('retrieveWord', () => {
   beforeEach(() => {
     jest.spyOn(global.Math, 'random').mockReturnValue(.01);
   });
