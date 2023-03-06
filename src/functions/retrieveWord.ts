@@ -1,7 +1,7 @@
 import data from '../data/frenchWordsSource.json';
-import { endingsPatterns } from '../data/genderPatterns';
+import { endingsPatterns } from '../data/genderPatterns.js';
 
-import { FrenchWordRecord, FrenchWordWithRule, GenderPatterns } from '../types/FrenchWordRecord';
+import { FrenchWordRecord, FrenchWordWithRule, GenderPatterns } from '../types/FrenchWordRecord.js';
 
 const frenchWords = data as FrenchWordRecord[];
 
