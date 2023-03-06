@@ -2,7 +2,7 @@
 import chalk from 'chalk';
 import yargs from 'yargs/yargs';
 import { frenchWords } from './data/frenchWords.js';
-import { startGame } from './functions/startGame.js';
+import { startGame } from './functions/gamePlay.js';
 import { verifyWordListRules } from './functions/verifyWordListRules.js';
 
 console.log(chalk.bgBlue(' French Gender Game '));

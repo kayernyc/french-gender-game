@@ -20,12 +20,23 @@ const randomizeIndexes = () => {
   });
 }
 
-const fullExplanation = (genderRuleKey: number, french: string, exception: boolean) => {
-  const { gender, rule, exceptions, explanation } = endingsPatterns[genderRuleKey];
+const fullExplanation = (genderRuleKey: number, french: string, exception: boolean): string => {
+  const { gender, rule, explanation } = endingsPatterns[genderRuleKey];
 
   if (rule && !explanation) {
-    console.log(rule, genderRuleKey, gender)
+    return `Words ending in "${rule}" are usually ${gender === 0 ? 'masculine' : 'feminine'}.
+    ${exception ? `The word «${french}» is an exception.` : ''}
+    `
   }
+
+  if (!rule && explanation) {
+    return `${explanation}.
+    ${exception ? `The word «${french}» is an exception.` : ''}`
+  }
+
+  console.warn(`${french} has neither rule nor explanation`);
+
+  return '';
 
 };
 
@@ -41,20 +52,19 @@ const playRound = async (numOfWords = wordsPerRound) => {
     const currentWordIndex = currentWords[i];
 
     const { english, french, gender, genderRuleKey, exception } = frenchWords[currentWordIndex];
-    console.log(frenchWords[currentWordIndex])
+
     const responseSentence = gender === 0
       ? chalk.bgBlue(`Un ${french} is masculine.`)
       : chalk.bgRed(`Une ${french} is feminine.`);
 
     let explanation = '';
     if (genderRuleKey) {
-      fullExplanation(genderRuleKey, french, exception)
-      explanation = `${endingsPatterns[genderRuleKey].explanation}${exception && `The word ${french} is an exception.`}`;
+      explanation = fullExplanation(genderRuleKey, french, exception);
     }
 
     console.log(
       `------------------------
-Current word: ${chalk.bgWhite.black.bold(` ${french} `)}
+      Current word: ${chalk.bgWhite.black.bold(` ${french} `)}
 English meaning: ${english}
     `)
     const answer = await inquirer.prompt({
@@ -69,16 +79,17 @@ English meaning: ${english}
 
     const success = await handleAnswer(answer.question, gender);
 
-    process.stdout.write(`
-\u2713 That is ${success ? 'correct' : 'incorrect'}.
+    console.log(`
+${success ? chalk.green('\u2714') : '\u274C'} That is ${success ? 'correct' : 'incorrect'}.
 ${responseSentence}
 ${explanation}
 
 
 
-`);
-    sleep();
+    `);
+    await sleep(4000);
   }
+
 
   return;
 };
@@ -89,7 +100,7 @@ export const startGame = async () => {
 
   console.log(`Practice recognizing the gender of French nouns.
   Select how many words you want to practice up to 2000 words!
-  `)
+      `)
 
   const numWords = await inquirer.prompt({
     name: 'numberWords',
