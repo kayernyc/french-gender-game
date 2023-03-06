@@ -1,4 +1,4 @@
-import { GenderPatterns } from "../types/FrenchWordRecord";
+import { GenderPatterns } from "../types/FrenchWordRecord.js";
 
 export const endingsPatterns: Record<number, GenderPatterns> = {
   0: { gender: 0, rule: 'phone', exceptions: [], explanation: '' },
