@@ -3807,7 +3807,7 @@ export const frenchWords: FrenchWordRecord[] = [
     "english": "supporter",
     "french": "supporter",
     "gender": 0,
-    "genderRuleKey": 74,
+    "genderRuleKey": 94,
     "exception": false,
   },
   {
@@ -10694,7 +10694,14 @@ export const frenchWords: FrenchWordRecord[] = [
     "english": "virtue",
     "french": "vertu",
     "gender": 1,
-    "genderRuleKey": 82,
+    "genderRuleKey": 72,
+    "exception": true,
+  },
+  {
+    "english": "tribe",
+    "french": "tribu",
+    "gender": 1,
+    "genderRuleKey": 72,
     "exception": true,
   },
   {
@@ -14522,7 +14529,7 @@ export const frenchWords: FrenchWordRecord[] = [
     "exception": false,
   },
   {
-    "english": "bro",
+    "english": "little brother or bro",
     "french": "frérot",
     "gender": 0,
     "genderRuleKey": 52,

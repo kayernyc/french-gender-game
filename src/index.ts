@@ -9,10 +9,10 @@ console.log(chalk.bgBlue(' French Gender Game '));
 
 verifyWordListRules();
 
-const startHandler = (argv: unknown) => {
-  console.log('num of words', frenchWords.length)
-  console.log('from bobby o', { argv });
-  startGame();
+const startHandler = async (argv: unknown) => {
+  console.log('from startHandler', { argv });
+  await startGame();
+  console.log('back!')
 }
 
 const argv2 = yargs(process.argv.slice(2))
