@@ -29,7 +29,7 @@ const fullExplanation = (genderRuleKey: number, french: string, exception: boole
     `
   }
 
-  if (!rule && explanation) {
+  if (explanation) {
     return `${explanation}.
     ${exception ? `The word «${french}» is an exception.` : ''}`
   }
@@ -64,7 +64,7 @@ const playRound = async (numOfWords = wordsPerRound) => {
 
     console.log(
       `------------------------
-      Current word: ${chalk.bgWhite.black.bold(` ${french} `)}
+Current word: ${chalk.bgWhite.black.bold(` ${french} `)}
 English meaning: ${english}
     `)
     const answer = await inquirer.prompt({
@@ -90,7 +90,6 @@ ${explanation}
     await sleep(4000);
   }
 
-
   return;
 };
 
@@ -110,6 +109,6 @@ export const startGame = async () => {
 
   wordsPerRound = await numWords.numberWords;
   await playRound(wordsPerRound);
-  process.exit(0);
+  return;
 }
 
