@@ -2,7 +2,7 @@ import chalk from "chalk";
 import inquirer from "inquirer";
 import { stdout } from "process";
 import { frenchWords } from "../data/frenchWords.js";
-import { endingsPatterns } from '../data/genderPatterns.js';
+import { fullExplanation } from "../utilities/fullExplanation.js";
 import { FrenchWordRecord } from "../types/FrenchWordRecord.js";
 import { randomizeIndexes } from '../utilities/randomizedIndexes.js';
 
@@ -11,6 +11,7 @@ const sleep = (ms = 2000) => new Promise((resolve) => setTimeout(resolve, ms));
 let wordsPerRound = 10;
 let breakPlay = false;
 let infinitePlay = false;
+const wordsMissed: FrenchWordRecord[] = []
 
 let wordsTriedCount = 0;
 let wordsCorrectCount = 0;
@@ -35,24 +36,6 @@ const keyListenerPublisher = {
   },
 }
 
-const fullExplanation = (genderRuleKey: number, french: string, exception: boolean): string => {
-  const { gender, rule, explanation } = endingsPatterns[genderRuleKey];
-
-  if (rule && !explanation) {
-    return `Words ending in "${rule}" are usually ${gender === 0 ? 'masculine' : 'feminine'}.
-    ${exception ? `The word «${french}» is an exception.` : ''}
-    `
-  }
-
-  if (explanation) {
-    return `${explanation}
-    ${exception ? `The word «${french}» is an exception.` : ''}`
-  }
-
-  console.warn(`${genderRuleKey} has neither rule nor explanation`);
-
-  return '';
-};
 
 const playRound = async (sourceArray: FrenchWordRecord[], arrayOfIndexes: number[], numOfWords = wordsPerRound) => {
   if (numOfWords > arrayOfIndexes.length) {
@@ -75,8 +58,9 @@ const playRound = async (sourceArray: FrenchWordRecord[], arrayOfIndexes: number
 
     const unsubscribe = keyListenerPublisher.subscribe(close.bind(this));
     const currentWordIndex = currentWords[i];
+    const currentWordObject = sourceArray[currentWordIndex];
 
-    const { english, french, gender, genderRuleKey, exception } = sourceArray[currentWordIndex];
+    const { english, french, gender, genderRuleKey, exception } = currentWordObject;
 
     const responseSentence = gender === 0
       ? `${chalk.bgBlue(`Un ${french} `)} is masculine.`
@@ -89,8 +73,10 @@ const playRound = async (sourceArray: FrenchWordRecord[], arrayOfIndexes: number
 
     stdout.write(
       `------------------------
+
 Current word: ${chalk.bgWhite.black.bold(` ${french} `)}
 English meaning: ${english}
+
 `)
 
     answer = inquirer.prompt({
@@ -105,8 +91,15 @@ English meaning: ${english}
 
     const response = await answer;
     wordsTriedCount += 1;
+
     const success = (response.question === 'masculine' ? 0 : 1) === gender;
-    wordsCorrectCount += success ? 1 : 0;
+    if (success) {
+      wordsCorrectCount += success ? 1 : 0;
+    } else {
+      arrayOfIndexes.splice(Math.floor(Math.random() * numOfWords), 0, currentWordIndex);
+      wordsMissed.push(currentWordObject);
+    }
+
 
     stdout.write(`
 ${success ? chalk.green('\u2714') : '\u274C'} That is ${success ? 'correct' : 'incorrect'}.
@@ -148,6 +141,13 @@ ${explanation}
   }
 };
 
+const wordsMissedMessage = (wordArray = wordsMissed): string => {
+  if (wordArray.length) {
+    return 'Words missed: ' + wordArray.map(({ french }) => french).join(', ');
+  }
+  return '';
+};
+
 export const startGame = async (infinite = false, sourceArray = frenchWords) => {
   const arrayOfIndexes = randomizeIndexes(sourceArray);
   await sleep();
@@ -164,7 +164,9 @@ export const startGame = async (infinite = false, sourceArray = frenchWords) => 
     stdout.write(`You have selected infinite play!\n\n`)
   } else {
     stdout.write(`Practice recognizing the gender of French nouns.
-    Select how many words you want to practice up to 2000 words!`);
+Select how many words you want to practice up to 2000 words!
+
+`);
 
     const numWords = await inquirer.prompt({
       name: 'numberWords',
@@ -183,6 +185,8 @@ export const startGame = async (infinite = false, sourceArray = frenchWords) => 
   ${chalk.bgBlue(' Words ') + chalk.bgWhite.black(' tried: ') + chalk.bgRed(` ${wordsTriedCount} `)}
 
   ${chalk.bgBlue(' Words ') + chalk.bgWhite.black(' correct: ') + chalk.bgRed(` ${wordsCorrectCount} `)}
+
+  ${wordsMissedMessage()}
   \n`)
   return;
 }
