@@ -6,7 +6,7 @@ import { startGame } from './functions/gamePlay.js';
 
 stdout.write(`
 
-${chalk.bgBlue(' French Gender Game ')}
+  ${chalk.bgBlue(' French Gender Game ')}
 
 `);
 
