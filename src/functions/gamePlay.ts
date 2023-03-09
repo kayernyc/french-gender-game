@@ -12,6 +12,9 @@ let wordsPerRound = 10;
 let breakPlay = false;
 let infinitePlay = false;
 
+let wordsTriedCount = 0;
+let wordsCorrectCount = 0;
+
 type SubscribeFunction = (evt: string) => void;
 
 const keyListenerPublisher = {
@@ -42,7 +45,7 @@ const fullExplanation = (genderRuleKey: number, french: string, exception: boole
   }
 
   if (explanation) {
-    return `${explanation}.
+    return `${explanation}
     ${exception ? `The word «${french}» is an exception.` : ''}`
   }
 
@@ -51,7 +54,7 @@ const fullExplanation = (genderRuleKey: number, french: string, exception: boole
   return '';
 };
 
-const playRound = async (sourceArray: FrenchWordRecord[], arrayOfIndexes: number[], numOfWords = wordsPerRound,) => {
+const playRound = async (sourceArray: FrenchWordRecord[], arrayOfIndexes: number[], numOfWords = wordsPerRound) => {
   if (numOfWords > arrayOfIndexes.length) {
     randomizeIndexes(sourceArray);
   }
@@ -101,7 +104,9 @@ English meaning: ${english}
     });
 
     const response = await answer;
+    wordsTriedCount += 1;
     const success = (response.question === 'masculine' ? 0 : 1) === gender;
+    wordsCorrectCount += success ? 1 : 0;
 
     stdout.write(`
 ${success ? chalk.green('\u2714') : '\u274C'} That is ${success ? 'correct' : 'incorrect'}.
@@ -136,9 +141,11 @@ ${explanation}
   }
 
   if (infinitePlay) {
-    playRound(sourceArray, arrayOfIndexes, numOfWords)
+    await playRound(sourceArray, arrayOfIndexes, numOfWords)
+  } else {
+    sleep();
+    return true;
   }
-  return;
 };
 
 export const startGame = async (infinite = false, sourceArray = frenchWords) => {
@@ -154,8 +161,7 @@ export const startGame = async (infinite = false, sourceArray = frenchWords) => 
 
   if (infinite) {
     infinitePlay = true;
-    stdout.write(`You have selected infinite play!
-        `)
+    stdout.write(`You have selected infinite play!\n\n`)
   } else {
     stdout.write(`Practice recognizing the gender of French nouns.
     Select how many words you want to practice up to 2000 words!`);
@@ -172,6 +178,11 @@ export const startGame = async (infinite = false, sourceArray = frenchWords) => 
   await playRound(sourceArray, arrayOfIndexes, wordsPerRound);
 
   stdout.write(`
-  ${chalk.bgBlue('Game')} ${chalk.bgRed('Over')}\n`);
+  ${chalk.bgBlue(' Game ') + chalk.bgRed(' Over ')}
+
+  ${chalk.bgBlue(' Words ') + chalk.bgWhite.black(' tried: ') + chalk.bgRed(` ${wordsTriedCount} `)}
+
+  ${chalk.bgBlue(' Words ') + chalk.bgWhite.black(' correct: ') + chalk.bgRed(` ${wordsCorrectCount} `)}
+  \n`)
   return;
 }
