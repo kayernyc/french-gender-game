@@ -278,7 +278,8 @@ export const frenchWords: FrenchWordRecord[] = [
     "english": "hour",
     "french": "heure",
     "gender": 1,
-    "genderRuleKey": 34, "exception": false,
+    "genderRuleKey": 34,
+    "exception": false,
   },
   {
     "english": "show",
@@ -319,7 +320,7 @@ export const frenchWords: FrenchWordRecord[] = [
     "english": "person",
     "french": "personne",
     "gender": 1,
-    "genderRuleKey": 94,
+    "genderRuleKey": 46,
     "exception": false,
   },
   {
@@ -347,7 +348,7 @@ export const frenchWords: FrenchWordRecord[] = [
     "english": "side",
     "french": "côté",
     "gender": 0,
-    "genderRuleKey": 76,
+    "genderRuleKey": 66,
     "exception": true,
   },
   {
@@ -646,9 +647,9 @@ export const frenchWords: FrenchWordRecord[] = [
   },
   {
     "english": "information",
-    "french": "informations",
-    "gender": 0,
-    "genderRuleKey": 74,
+    "french": "information",
+    "gender": 1,
+    "genderRuleKey": 39,
     "exception": false,
   },
   {
@@ -2040,7 +2041,7 @@ export const frenchWords: FrenchWordRecord[] = [
     "english": "summer",
     "french": "été",
     "gender": 0,
-    "genderRuleKey": 76,
+    "genderRuleKey": 66,
     "exception": true,
   },
   {
@@ -2726,7 +2727,7 @@ export const frenchWords: FrenchWordRecord[] = [
     "english": "committee",
     "french": "comité",
     "gender": 0,
-    "genderRuleKey": 76,
+    "genderRuleKey": 66,
     "exception": true,
   },
   {
@@ -6788,7 +6789,7 @@ export const frenchWords: FrenchWordRecord[] = [
     "english": "treaty",
     "french": "traité",
     "gender": 0,
-    "genderRuleKey": 76,
+    "genderRuleKey": 66,
     "exception": true,
   },
   {
@@ -9229,8 +9230,8 @@ export const frenchWords: FrenchWordRecord[] = [
     "english": "mouse",
     "french": "souris",
     "gender": 1,
-    "genderRuleKey": 84,
-    "exception": false,
+    "genderRuleKey": 74,
+    "exception": true,
   },
   {
     "english": "alarm",
@@ -12098,7 +12099,7 @@ export const frenchWords: FrenchWordRecord[] = [
     "english": "county",
     "french": "comté",
     "gender": 0,
-    "genderRuleKey": 76,
+    "genderRuleKey": 66,
     "exception": true,
   },
   {
@@ -13517,15 +13518,15 @@ export const frenchWords: FrenchWordRecord[] = [
     "english": "oasis",
     "french": "oasis",
     "gender": 1,
-    "genderRuleKey": 84,
-    "exception": false,
+    "genderRuleKey": 74,
+    "exception": true,
   },
   {
     "english": "a screw",
     "french": "vis",
     "gender": 1,
-    "genderRuleKey": 84,
-    "exception": false,
+    "genderRuleKey": 74,
+    "exception": true,
   },
   {
     "english": "stop",
