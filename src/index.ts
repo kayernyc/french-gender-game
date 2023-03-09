@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 import chalk from 'chalk';
+import { stdout } from 'process';
 import yargs from 'yargs/yargs';
 import { startGame } from './functions/gamePlay.js';
-import { verifyWordListRules } from './functions/verifyWordListRules.js';
 
-console.log(chalk.bgBlue(' French Gender Game '));
+stdout.write(`
 
-verifyWordListRules();
+${chalk.bgBlue(' French Gender Game ')}
+
+`);
 
 const startOptions = {
   infinite: {
@@ -14,7 +16,7 @@ const startOptions = {
     alias: 'inf',
     type: 'boolean',
     demandOption: false,
-    describe: "Set the game play to be infinite. Break out with -q or escape.",
+    describe: "Set the game play to be infinite.",
   }
 } as const;
 

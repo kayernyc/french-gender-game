@@ -3,11 +3,12 @@ import inquirer from "inquirer";
 import { stdout } from "process";
 import { frenchWords } from "../data/frenchWords.js";
 import { endingsPatterns } from '../data/genderPatterns.js';
+import { FrenchWordRecord } from "../types/FrenchWordRecord.js";
+import { randomizeIndexes } from '../utilities/randomizedIndexes.js';
 
 const sleep = (ms = 2000) => new Promise((resolve) => setTimeout(resolve, ms));
 
 let wordsPerRound = 10;
-let arrayOfIndexes: number[];
 let breakPlay = false;
 let infinitePlay = false;
 
@@ -31,18 +32,6 @@ const keyListenerPublisher = {
   },
 }
 
-const randomizeIndexes = () => {
-  arrayOfIndexes = [];
-  [...Array(frenchWords.length).keys()].forEach((wordIndex: number) => {
-    if (arrayOfIndexes.length > 1) {
-      const positionIndex = Math.floor(Math.random() * arrayOfIndexes.length);
-      arrayOfIndexes.splice(positionIndex, 0, wordIndex)
-    } else {
-      Math.random() > .5 ? arrayOfIndexes.unshift(wordIndex) : arrayOfIndexes.push(wordIndex)
-    }
-  });
-}
-
 const fullExplanation = (genderRuleKey: number, french: string, exception: boolean): string => {
   const { gender, rule, explanation } = endingsPatterns[genderRuleKey];
 
@@ -62,7 +51,10 @@ const fullExplanation = (genderRuleKey: number, french: string, exception: boole
   return '';
 };
 
-const playRound = async (numOfWords = wordsPerRound) => {
+const playRound = async (sourceArray: FrenchWordRecord[], arrayOfIndexes: number[], numOfWords = wordsPerRound,) => {
+  if (numOfWords > arrayOfIndexes.length) {
+    randomizeIndexes(sourceArray);
+  }
   const currentWords = arrayOfIndexes.splice(0, numOfWords);
 
   questions:
@@ -81,7 +73,7 @@ const playRound = async (numOfWords = wordsPerRound) => {
     const unsubscribe = keyListenerPublisher.subscribe(close.bind(this));
     const currentWordIndex = currentWords[i];
 
-    const { english, french, gender, genderRuleKey, exception } = frenchWords[currentWordIndex];
+    const { english, french, gender, genderRuleKey, exception } = sourceArray[currentWordIndex];
 
     const responseSentence = gender === 0
       ? `${chalk.bgBlue(`Un ${french} `)} is masculine.`
@@ -96,7 +88,7 @@ const playRound = async (numOfWords = wordsPerRound) => {
       `------------------------
 Current word: ${chalk.bgWhite.black.bold(` ${french} `)}
 English meaning: ${english}
-    `)
+`)
 
     answer = inquirer.prompt({
       name: 'question',
@@ -124,28 +116,33 @@ ${explanation}
     unsubscribe();
 
     if (breakPlay) {
+      infinitePlay = false;
+      if (answer.question.ui) {
+        answer.question.ui.close();
+      }
       break questions;
-    } else {
+    } else if (infinitePlay || i < numOfWords - 1) {
       const nextQuestion = await inquirer.prompt({
         name: 'continue',
         type: 'confirm',
         message: 'Next question?',
       });
 
-      if (!nextQuestion.continue) {
+      if (nextQuestion.continue === false) {
+        infinitePlay = false;
         break questions;
       }
     }
   }
 
   if (infinitePlay) {
-    playRound()
+    playRound(sourceArray, arrayOfIndexes, numOfWords)
   }
   return;
 };
 
-export const startGame = async (infinite = false) => {
-  randomizeIndexes();
+export const startGame = async (infinite = false, sourceArray = frenchWords) => {
+  const arrayOfIndexes = randomizeIndexes(sourceArray);
   await sleep();
 
   process.stdin.on('keypress', (_, key) => {
@@ -161,8 +158,7 @@ export const startGame = async (infinite = false) => {
         `)
   } else {
     stdout.write(`Practice recognizing the gender of French nouns.
-    Select how many words you want to practice up to 2000 words!
-        `);
+    Select how many words you want to practice up to 2000 words!`);
 
     const numWords = await inquirer.prompt({
       name: 'numberWords',
@@ -173,6 +169,9 @@ export const startGame = async (infinite = false) => {
     wordsPerRound = await numWords.numberWords;
   }
 
-  await playRound(wordsPerRound);
+  await playRound(sourceArray, arrayOfIndexes, wordsPerRound);
+
+  stdout.write(`
+  ${chalk.bgBlue('Game')} ${chalk.bgRed('Over')}\n`);
   return;
 }
