@@ -74,8 +74,8 @@ const playRound = async (sourceArray: FrenchWordRecord[], arrayOfIndexes: number
     stdout.write(
       `------------------------
 
-Current word: ${chalk.bgWhite.black.bold(` ${french} `)}
-English meaning: ${english}
+Current word: ${chalk.bgWhite.black(` ${french} `)}
+${chalk.gray(`English meaning: ${english}`)}
 
 `)
 
@@ -94,6 +94,9 @@ English meaning: ${english}
 
     const success = (response.question === 'masculine' ? 0 : 1) === gender;
     if (success) {
+      if (wordsMissed.includes(currentWordObject)) {
+        wordsMissed.splice(wordsMissed.indexOf(currentWordObject), 1);
+      }
       wordsCorrectCount += success ? 1 : 0;
     } else {
       arrayOfIndexes.splice(Math.floor(Math.random() * numOfWords), 0, currentWordIndex);
@@ -127,6 +130,7 @@ ${explanation}
       });
 
       if (nextQuestion.continue === false) {
+        breakPlay = true;
         infinitePlay = false;
         break questions;
       }
@@ -136,14 +140,29 @@ ${explanation}
   if (infinitePlay) {
     await playRound(sourceArray, arrayOfIndexes, numOfWords)
   } else {
+    if (!breakPlay) {
+      const newRoundQuestion = inquirer.prompt({
+        name: 'newRound',
+        type: 'confirm',
+        message: `${chalk.bgWhite.black(' Another round? ')}`,
+      });
+      const doAnotherRound = await (await newRoundQuestion).newRound;
+
+      if (doAnotherRound) {
+        await playRound(sourceArray, arrayOfIndexes, numOfWords);
+      }
+    }
+
     sleep();
-    return true;
+    return;
   }
 };
 
 const wordsMissedMessage = (wordArray = wordsMissed): string => {
-  if (wordArray.length) {
-    return 'Words missed: ' + wordArray.map(({ french }) => french).join(', ');
+  const finalWords = Array.from(new Set(wordArray));
+
+  if (finalWords.length) {
+    return 'Words missed: ' + finalWords.map(({ french }) => french).join(', ');
   }
   return '';
 };
