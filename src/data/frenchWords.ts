@@ -390,8 +390,8 @@ export const frenchWords: FrenchWordRecord[] = [
     "english": "member",
     "french": "membre",
     "gender": 0,
-    "genderRuleKey": 68,
-    "exception": true,
+    "genderRuleKey": 82,
+    "exception": false,
   },
   {
     "english": "system",
@@ -3171,7 +3171,7 @@ export const frenchWords: FrenchWordRecord[] = [
     "english": "adult",
     "french": "adulte",
     "gender": 0,
-    "genderRuleKey": 91,
+    "genderRuleKey": 82,
     "exception": false,
   },
   {
@@ -3717,7 +3717,7 @@ export const frenchWords: FrenchWordRecord[] = [
     "english": "artist",
     "french": "artiste",
     "gender": 0,
-    "genderRuleKey": 91,
+    "genderRuleKey": 82,
     "exception": false,
   },
   {
@@ -6068,14 +6068,14 @@ export const frenchWords: FrenchWordRecord[] = [
   },
   {
     "english": "funeral",
-    "french": "funérailles",
+    "french": "enterrement",
     "gender": 0,
-    "genderRuleKey": 74,
+    "genderRuleKey": 11,
     "exception": false,
   },
   {
     "english": "youth",
-    "french": "jeunes",
+    "french": "jeune",
     "gender": 0,
     "genderRuleKey": 74,
     "exception": false,
@@ -10420,8 +10420,8 @@ export const frenchWords: FrenchWordRecord[] = [
     "exception": false,
   },
   {
-    "english": "membership",
-    "french": "membres",
+    "english": "member",
+    "french": "membre",
     "gender": 0,
     "genderRuleKey": 74,
     "exception": false,
@@ -14429,7 +14429,7 @@ export const frenchWords: FrenchWordRecord[] = [
     "french": "URL",
     "gender": 1,
     "genderRuleKey": 94,
-    "exception": false,
+    "exception": true,
   },
   {
     "english": "manicle",
@@ -14499,7 +14499,7 @@ export const frenchWords: FrenchWordRecord[] = [
     "french": "start-up",
     "gender": 1,
     "genderRuleKey": 94,
-    "exception": false,
+    "exception": true,
   },
   {
     "english": "underwear (men's)",
