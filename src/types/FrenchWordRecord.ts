@@ -1,9 +1,10 @@
 export interface FrenchWordRecord {
   english: string;
+  exception: boolean;
   french: string;
   gender: GenderBinary;
-  genderRuleKey?: number;
-  exception: boolean;
+  genderRuleKey: number;
+  note?: string;
 }
 
 export type GenderBinary = 0 | 1;
