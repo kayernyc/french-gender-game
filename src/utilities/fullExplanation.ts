@@ -1,6 +1,6 @@
 import { endingsPatterns } from '../data/genderPatterns.js';
 
-export const fullExplanation = (genderRuleKey: number, french: string, exception: boolean): string => {
+export const fullExplanation = (genderRuleKey: number, french: string, exception: boolean, note?: string): string => {
   try {
 
     const { gender, rule, explanation } = endingsPatterns[genderRuleKey];
@@ -13,7 +13,9 @@ export const fullExplanation = (genderRuleKey: number, french: string, exception
 
     if (explanation) {
       return `${explanation}
-      ${exception ? `The word «${french}» is an exception.` : ''}`
+      ${exception ? `The word «${french}» is an exception.` : ''}${note ? `
+${note}
+      `: ''}`
     }
   } catch (error) {
     if (error instanceof Error) {

@@ -27,4 +27,32 @@
     "genderRuleKey": 67,
     "exception": false
   }
+  {
+    "english": "a girl",
+    "french": "jeune",
+    "gender": 1,
+    "genderRuleKey": 67,
+    "exception": true
+  },
+  {
+    "english": "a youth, a young person",
+    "french": "jeune",
+    "gender": 0,
+    "genderRuleKey": 73,
+    "exception": false
+  },
+  {
+    "english": "youngster",
+    "french": "jeune",
+    "gender": 0,
+    "genderRuleKey": 67,
+    "exception": true
+  },
+  {
+    "english": "lad",
+    "french": "jeune",
+    "gender": 0,
+    "genderRuleKey": 67,
+    "exception": true
+  },
 ]

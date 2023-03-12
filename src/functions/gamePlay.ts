@@ -60,15 +60,21 @@ const playRound = async (sourceArray: FrenchWordRecord[], arrayOfIndexes: number
     const currentWordIndex = currentWords[i];
     const currentWordObject = sourceArray[currentWordIndex];
 
-    const { english, french, gender, genderRuleKey, exception } = currentWordObject;
+    const { english, french, gender, genderRuleKey, exception, note } = currentWordObject;
+    let testPhrase = french;
+    if (french.slice(0, 4) !== 'les') {
+      testPhrase = `${gender === 0 ? 'un ' : 'une '} ${french}`;
+    }
+
+
 
     const responseSentence = gender === 0
-      ? `${chalk.bgBlue(`Un ${french} `)} is masculine.`
-      : `${chalk.bgRed(`Une ${french} `)} is feminine.`;
+      ? `${chalk.bgBlue(` ${testPhrase} `)} is masculine.`
+      : `${chalk.bgRed(` ${testPhrase} `)} is feminine.`;
 
     let explanation = '';
     if (genderRuleKey) {
-      explanation = fullExplanation(genderRuleKey, french, exception);
+      explanation = fullExplanation(genderRuleKey, french, exception, note);
     }
 
     stdout.write(
@@ -106,6 +112,7 @@ ${chalk.gray(`English meaning: ${english}`)}
 
     stdout.write(`
 ${success ? chalk.green('\u2714') : '\u274C'} That is ${success ? 'correct' : 'incorrect'}.
+
 ${responseSentence}
 ${explanation}
 
@@ -194,6 +201,11 @@ Select how many words you want to practice up to 2000 words!
     });
 
     wordsPerRound = await numWords.numberWords;
+  }
+
+  if (wordsPerRound <= 0 || Number.isNaN(wordsPerRound)) {
+    wordsPerRound = 10;
+    infinitePlay = true;
   }
 
   await playRound(sourceArray, arrayOfIndexes, wordsPerRound);

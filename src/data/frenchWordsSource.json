@@ -108,8 +108,8 @@
     "english": "week",
     "french": "semaine",
     "gender": 1,
-    "genderRuleKey": 37,
-    "exception": true
+    "genderRuleKey": 38,
+    "exception": false
   },
   {
     "english": "world",
@@ -228,13 +228,6 @@
     "french": "nuitée",
     "gender": 1,
     "genderRuleKey": 90,
-    "exception": false
-  },
-  {
-    "english": "right",
-    "french": "droit",
-    "gender": 0,
-    "genderRuleKey": 73,
     "exception": false
   },
   {
@@ -533,10 +526,10 @@
   },
   {
     "english": "care",
-    "french": "soins",
+    "french": "soin",
     "gender": 0,
-    "genderRuleKey": 73,
-    "exception": false
+    "genderRuleKey": 39,
+    "exception": true
   },
   {
     "english": "couple",
@@ -693,6 +686,13 @@
     "exception": false
   },
   {
+    "english": "aire",
+    "french": "area",
+    "gender": 1,
+    "genderRuleKey": 40,
+    "exception": false
+  },
+  {
     "english": "call",
     "french": "appel",
     "gender": 0,
@@ -720,13 +720,7 @@
     "genderRuleKey": 67,
     "exception": true
   },
-  {
-    "english": "girl",
-    "french": "jeune",
-    "gender": 1,
-    "genderRuleKey": 67,
-    "exception": true
-  },
+
   {
     "english": "doctor",
     "french": "médecin",
@@ -1200,7 +1194,7 @@
     "english": "budget",
     "french": "budget",
     "gender": 0,
-    "genderRuleKey": 73,
+    "genderRuleKey": 51,
     "exception": false
   },
   {
@@ -1242,7 +1236,7 @@
     "english": "gun",
     "french": "pistolet",
     "gender": 0,
-    "genderRuleKey": 73,
+    "genderRuleKey": 51,
     "exception": false
   },
   {
@@ -1403,7 +1397,7 @@
     "english": "effect",
     "french": "effet",
     "gender": 0,
-    "genderRuleKey": 73,
+    "genderRuleKey": 51,
     "exception": false
   },
   {
@@ -1683,8 +1677,8 @@
     "english": "trouble",
     "french": "peine",
     "gender": 1,
-    "genderRuleKey": 37,
-    "exception": true
+    "genderRuleKey": 38,
+    "exception": false
   },
   {
     "english": "risk",
@@ -2068,8 +2062,8 @@
     "english": "value or worth",
     "french": "valeur",
     "gender": 1,
-    "genderRuleKey": 73,
-    "exception": true
+    "genderRuleKey": 90,
+    "exception": false
   },
   {
     "english": "stock",
@@ -2313,8 +2307,8 @@
     "english": "fear",
     "french": "peur",
     "gender": 1,
-    "genderRuleKey": 73,
-    "exception": true
+    "genderRuleKey": 90,
+    "exception": false
   },
   {
     "english": "example",
@@ -2502,7 +2496,7 @@
     "english": "project",
     "french": "projet",
     "gender": 0,
-    "genderRuleKey": 73,
+    "genderRuleKey": 51,
     "exception": false
   },
   {
@@ -2558,8 +2552,8 @@
     "english": "pain",
     "french": "douleur",
     "gender": 1,
-    "genderRuleKey": 73,
-    "exception": true
+    "genderRuleKey": 90,
+    "exception": false
   },
   {
     "english": "season",
@@ -2775,7 +2769,7 @@
     "english": "subject",
     "french": "objet",
     "gender": 0,
-    "genderRuleKey": 73,
+    "genderRuleKey": 51,
     "exception": false
   },
   {
@@ -3006,8 +3000,8 @@
     "english": "plant",
     "french": "usine",
     "gender": 1,
-    "genderRuleKey": 37,
-    "exception": true
+    "genderRuleKey": 38,
+    "exception": false
   },
   {
     "english": "democracy",
@@ -3300,8 +3294,8 @@
     "english": "machine",
     "french": "machine",
     "gender": 1,
-    "genderRuleKey": 37,
-    "exception": true
+    "genderRuleKey": 38,
+    "exception": false
   },
   {
     "english": "window",
@@ -3626,13 +3620,6 @@
     "exception": true
   },
   {
-    "english": "focus",
-    "french": "mise",
-    "gender": 1,
-    "genderRuleKey": 40,
-    "exception": true
-  },
-  {
     "english": "circumstance",
     "french": "circonstance",
     "gender": 1,
@@ -3720,8 +3707,8 @@
     "english": "medicine",
     "french": "médecine",
     "gender": 1,
-    "genderRuleKey": 37,
-    "exception": true
+    "genderRuleKey": 38,
+    "exception": false
   },
   {
     "english": "representative",
@@ -3818,7 +3805,7 @@
     "english": "ticket",
     "french": "billet",
     "gender": 0,
-    "genderRuleKey": 73,
+    "genderRuleKey": 51,
     "exception": false
   },
   {
@@ -3881,7 +3868,7 @@
     "english": "secret",
     "french": "secret",
     "gender": 0,
-    "genderRuleKey": 73,
+    "genderRuleKey": 51,
     "exception": false
   },
   {
@@ -4301,8 +4288,8 @@
     "english": "penalty",
     "french": "peine",
     "gender": 1,
-    "genderRuleKey": 37,
-    "exception": true
+    "genderRuleKey": 38,
+    "exception": false
   },
   {
     "english": "warning",
@@ -4323,7 +4310,8 @@
     "french": "tour",
     "gender": 0,
     "genderRuleKey": 73,
-    "exception": false
+    "exception": false,
+    "note": "«tour» is masculine for turns and tours, but feminine for towers."
   },
   {
     "english": "facility",
@@ -4539,8 +4527,8 @@
     "english": "breast",
     "french": "poitrine",
     "gender": 1,
-    "genderRuleKey": 37,
-    "exception": true
+    "genderRuleKey": 38,
+    "exception": false
   },
   {
     "english": "spring",
@@ -4616,7 +4604,7 @@
     "english": "spokesman",
     "french": "porte-parole",
     "gender": 0,
-    "genderRuleKey": 79,
+    "genderRuleKey": 80,
     "exception": false
   },
   {
@@ -4770,7 +4758,7 @@
     "english": "summit",
     "french": "sommet",
     "gender": 0,
-    "genderRuleKey": 73,
+    "genderRuleKey": 51,
     "exception": false
   },
   {
@@ -5302,7 +5290,7 @@
     "english": "path",
     "french": "trajet",
     "gender": 0,
-    "genderRuleKey": 73,
+    "genderRuleKey": 51,
     "exception": false
   },
   {
@@ -5407,7 +5395,7 @@
     "english": "topic",
     "french": "sujet",
     "gender": 0,
-    "genderRuleKey": 73,
+    "genderRuleKey": 51,
     "exception": false
   },
   {
@@ -5449,7 +5437,7 @@
     "english": "chicken",
     "french": "poulet",
     "gender": 0,
-    "genderRuleKey": 73,
+    "genderRuleKey": 51,
     "exception": false
   },
   {
@@ -5575,8 +5563,8 @@
     "english": "kitchen",
     "french": "cuisine",
     "gender": 1,
-    "genderRuleKey": 37,
-    "exception": true
+    "genderRuleKey": 38,
+    "exception": false
   },
   {
     "english": "territory",
@@ -5779,7 +5767,7 @@
     "english": "toy",
     "french": "jouet",
     "gender": 0,
-    "genderRuleKey": 73,
+    "genderRuleKey": 51,
     "exception": false
   },
   {
@@ -5800,8 +5788,8 @@
     "english": "pool",
     "french": "piscine",
     "gender": 1,
-    "genderRuleKey": 37,
-    "exception": true
+    "genderRuleKey": 38,
+    "exception": false
   },
   {
     "english": "trend",
@@ -6003,8 +5991,8 @@
     "english": "mine",
     "french": "mine",
     "gender": 1,
-    "genderRuleKey": 37,
-    "exception": true
+    "genderRuleKey": 38,
+    "exception": false
   },
   {
     "english": "watch",
@@ -6121,13 +6109,6 @@
   {
     "english": "funeral",
     "french": "funérailles",
-    "gender": 0,
-    "genderRuleKey": 73,
-    "exception": false
-  },
-  {
-    "english": "youth",
-    "french": "jeunes",
     "gender": 0,
     "genderRuleKey": 73,
     "exception": false
@@ -6444,15 +6425,15 @@
     "english": "ride",
     "french": "trajet",
     "gender": 0,
-    "genderRuleKey": 73,
+    "genderRuleKey": 51,
     "exception": false
   },
   {
     "english": "root",
     "french": "racine",
     "gender": 1,
-    "genderRuleKey": 37,
-    "exception": true
+    "genderRuleKey": 38,
+    "exception": false
   },
   {
     "english": "tea",
@@ -6598,8 +6579,8 @@
     "english": "mood",
     "french": "humeur",
     "gender": 1,
-    "genderRuleKey": 73,
-    "exception": true
+    "genderRuleKey": 90,
+    "exception": false
   },
   {
     "english": "design",
@@ -6899,8 +6880,8 @@
     "english": "flower",
     "french": "fleur",
     "gender": 1,
-    "genderRuleKey": 73,
-    "exception": true
+    "genderRuleKey": 90,
+    "exception": false
   },
   {
     "english": "cup",
@@ -7242,7 +7223,7 @@
     "english": "jet",
     "french": "jet",
     "gender": 0,
-    "genderRuleKey": 73,
+    "genderRuleKey": 51,
     "exception": false
   },
   {
@@ -7502,7 +7483,8 @@
     "french": "tour",
     "gender": 1,
     "genderRuleKey": 73,
-    "exception": true
+    "exception": true,
+    "note": "«tour» is masculine for turns and tours, but feminine for towers."
   },
   {
     "english": "feature",
@@ -7697,15 +7679,15 @@
     "english": "chest",
     "french": "poitrine",
     "gender": 1,
-    "genderRuleKey": 37,
-    "exception": true
+    "genderRuleKey": 38,
+    "exception": false
   },
   {
     "english": "routine",
     "french": "routine",
     "gender": 1,
-    "genderRuleKey": 37,
-    "exception": true
+    "genderRuleKey": 38,
+    "exception": false
   },
   {
     "english": "library",
@@ -7732,7 +7714,7 @@
     "english": "object",
     "french": "objet",
     "gender": 0,
-    "genderRuleKey": 73,
+    "genderRuleKey": 51,
     "exception": false
   },
   {
@@ -7935,14 +7917,14 @@
     "english": "height",
     "french": "hauteur",
     "gender": 1,
-    "genderRuleKey": 73,
-    "exception": true
+    "genderRuleKey": 90,
+    "exception": false
   },
   {
     "english": "draft",
     "french": "projet",
     "gender": 0,
-    "genderRuleKey": 73,
+    "genderRuleKey": 51,
     "exception": false
   },
   {
@@ -7970,8 +7952,8 @@
     "english": "discipline",
     "french": "discipline",
     "gender": 1,
-    "genderRuleKey": 37,
-    "exception": true
+    "genderRuleKey": 38,
+    "exception": false
   },
   {
     "english": "fruit",
@@ -8184,13 +8166,6 @@
     "exception": true
   },
   {
-    "english": "establishment",
-    "french": "mise",
-    "gender": 1,
-    "genderRuleKey": 40,
-    "exception": true
-  },
-  {
     "english": "chamber",
     "french": "chambre",
     "gender": 1,
@@ -8201,8 +8176,8 @@
     "english": "horror",
     "french": "horreur",
     "gender": 1,
-    "genderRuleKey": 73,
-    "exception": true
+    "genderRuleKey": 90,
+    "exception": false
   },
   {
     "english": "banking",
@@ -8240,7 +8215,7 @@
     "exception": true
   },
   {
-    "english": "essence",
+    "english": "gas, petrol or essence",
     "french": "essence",
     "gender": 1,
     "genderRuleKey": 1,
@@ -8691,15 +8666,15 @@
     "english": "length",
     "french": "longueur",
     "gender": 1,
-    "genderRuleKey": 73,
-    "exception": true
+    "genderRuleKey": 90,
+    "exception": false
   },
   {
     "english": "cow",
     "french": "vache",
     "gender": 1,
-    "genderRuleKey": 67,
-    "exception": true
+    "genderRuleKey": 68,
+    "exception": false
   },
   {
     "english": "pack",
@@ -8999,7 +8974,7 @@
     "english": "captain",
     "french": "capitaine",
     "gender": 0,
-    "genderRuleKey": 37,
+    "genderRuleKey": 82,
     "exception": true
   },
   {
@@ -9041,8 +9016,8 @@
     "english": "seed",
     "french": "graine",
     "gender": 1,
-    "genderRuleKey": 37,
-    "exception": true
+    "genderRuleKey": 38,
+    "exception": false
   },
   {
     "english": "rat",
@@ -9188,7 +9163,7 @@
     "english": "net",
     "french": "net",
     "gender": 0,
-    "genderRuleKey": 73,
+    "genderRuleKey": 51,
     "exception": false
   },
   {
@@ -9983,13 +9958,6 @@
     "exception": true
   },
   {
-    "english": "youngster",
-    "french": "jeune",
-    "gender": 0,
-    "genderRuleKey": 67,
-    "exception": true
-  },
-  {
     "english": "transfer",
     "french": "transfert",
     "gender": 0,
@@ -10014,14 +9982,14 @@
     "english": "depth",
     "french": "profondeur",
     "gender": 1,
-    "genderRuleKey": 73,
-    "exception": true
+    "genderRuleKey": 90,
+    "exception": false
   },
   {
     "english": "blanket",
     "french": "blanchet",
     "gender": 0,
-    "genderRuleKey": 73,
+    "genderRuleKey": 51,
     "exception": false
   },
   {
@@ -10448,8 +10416,8 @@
     "english": "protein",
     "french": "protéine",
     "gender": 1,
-    "genderRuleKey": 37,
-    "exception": true
+    "genderRuleKey": 38,
+    "exception": false
   },
   {
     "english": "accuracy",
@@ -10483,8 +10451,8 @@
     "english": "smell",
     "french": "odeur",
     "gender": 1,
-    "genderRuleKey": 73,
-    "exception": true
+    "genderRuleKey": 90,
+    "exception": false
   },
   {
     "english": "departure",
@@ -10707,8 +10675,8 @@
     "english": "origin",
     "french": "origine",
     "gender": 1,
-    "genderRuleKey": 37,
-    "exception": true
+    "genderRuleKey": 38,
+    "exception": false
   },
   {
     "english": "defender",
@@ -10994,8 +10962,8 @@
     "english": "steam",
     "french": "vapeur",
     "gender": 1,
-    "genderRuleKey": 73,
-    "exception": true
+    "genderRuleKey": 90,
+    "exception": false
   },
   {
     "english": "agriculture",
@@ -11127,8 +11095,8 @@
     "english": "swimming",
     "french": "piscine",
     "gender": 1,
-    "genderRuleKey": 37,
-    "exception": true
+    "genderRuleKey": 38,
+    "exception": false
   },
   {
     "english": "emission",
@@ -11169,8 +11137,8 @@
     "english": "cab",
     "french": "cabine",
     "gender": 1,
-    "genderRuleKey": 37,
-    "exception": true
+    "genderRuleKey": 38,
+    "exception": false
   },
   {
     "english": "glory",
@@ -11316,8 +11284,8 @@
     "english": "doctrine",
     "french": "doctrine",
     "gender": 1,
-    "genderRuleKey": 37,
-    "exception": true
+    "genderRuleKey": 38,
+    "exception": false
   },
   {
     "english": "developer",
@@ -11827,8 +11795,8 @@
     "english": "navy",
     "french": "marine",
     "gender": 1,
-    "genderRuleKey": 37,
-    "exception": true
+    "genderRuleKey": 38,
+    "exception": false
   },
   {
     "english": "inn",
@@ -11928,13 +11896,7 @@
     "genderRuleKey": 73,
     "exception": false
   },
-  {
-    "english": "lad",
-    "french": "jeune",
-    "gender": 0,
-    "genderRuleKey": 67,
-    "exception": true
-  },
+
   {
     "english": "judgement",
     "french": "jugement",
@@ -11960,8 +11922,8 @@
     "english": "favor or favour",
     "french": "faveur",
     "gender": 1,
-    "genderRuleKey": 73,
-    "exception": true
+    "genderRuleKey": 90,
+    "exception": false
   },
   {
     "english": "terrace",
@@ -12009,8 +11971,8 @@
     "english": "hill",
     "french": "colline",
     "gender": 1,
-    "genderRuleKey": 37,
-    "exception": true
+    "genderRuleKey": 38,
+    "exception": false
   },
   {
     "english": "jew",
@@ -12079,8 +12041,8 @@
     "english": "dozen",
     "french": "douzaine",
     "gender": 1,
-    "genderRuleKey": 37,
-    "exception": true
+    "genderRuleKey": 38,
+    "exception": false
   },
   {
     "english": "cheque",
@@ -12107,7 +12069,7 @@
     "english": "about one hundred",
     "french": "centaine",
     "gender": 1,
-    "genderRuleKey": 97,
+    "genderRuleKey": 98,
     "exception": false
   },
   {
@@ -12149,8 +12111,8 @@
     "english": "rumour",
     "french": "rumeur",
     "gender": 1,
-    "genderRuleKey": 73,
-    "exception": true
+    "genderRuleKey": 90,
+    "exception": false
   },
   {
     "english": "other",
@@ -12366,8 +12328,8 @@
     "english": "queen",
     "french": "reine",
     "gender": 1,
-    "genderRuleKey": 37,
-    "exception": true
+    "genderRuleKey": 38,
+    "exception": false
   },
   {
     "english": "republic",
@@ -12485,8 +12447,8 @@
     "english": "color or colour",
     "french": "couleur",
     "gender": 1,
-    "genderRuleKey": 73,
-    "exception": true
+    "genderRuleKey": 90,
+    "exception": false
   },
   {
     "english": "prince",
@@ -12611,7 +12573,7 @@
     "english": "verse",
     "french": "verset",
     "gender": 0,
-    "genderRuleKey": 73,
+    "genderRuleKey": 51,
     "exception": false
   },
   {
@@ -12678,7 +12640,7 @@
     "exception": true
   },
   {
-    "english": "implementation",
+    "english": "appearance",
     "french": "mise",
     "gender": 1,
     "genderRuleKey": 40,
@@ -12751,8 +12713,8 @@
     "english": "machinery",
     "french": "machine",
     "gender": 1,
-    "genderRuleKey": 37,
-    "exception": true
+    "genderRuleKey": 38,
+    "exception": false
   },
   {
     "english": "canal",
@@ -12996,7 +12958,7 @@
     "english": "cottage",
     "french": "chalet",
     "gender": 0,
-    "genderRuleKey": 73,
+    "genderRuleKey": 51,
     "exception": false
   },
   {
@@ -13017,8 +12979,8 @@
     "english": "warmth or heat",
     "french": "chaleur",
     "gender": 1,
-    "genderRuleKey": 73,
-    "exception": true
+    "genderRuleKey": 90,
+    "exception": false
   },
   {
     "english": "spell",
@@ -13311,15 +13273,15 @@
     "english": "packet",
     "french": "paquet",
     "gender": 0,
-    "genderRuleKey": 73,
+    "genderRuleKey": 51,
     "exception": false
   },
   {
     "english": "wool",
     "french": "laine",
     "gender": 1,
-    "genderRuleKey": 37,
-    "exception": true
+    "genderRuleKey": 38,
+    "exception": false
   },
   {
     "english": "heading",
@@ -13574,13 +13536,6 @@
     "exception": true
   },
   {
-    "english": "tower",
-    "french": "tour",
-    "gender": 1,
-    "genderRuleKey": 73,
-    "exception": true
-  },
-  {
     "english": "back",
     "french": "dos",
     "gender": 0,
@@ -13633,7 +13588,7 @@
     "english": "faucet",
     "french": "robinet",
     "gender": 0,
-    "genderRuleKey": 73,
+    "genderRuleKey": 51,
     "exception": false
   },
   {
@@ -14382,8 +14337,8 @@
     "english": "hate",
     "french": "haine",
     "gender": 1,
-    "genderRuleKey": 37,
-    "exception": true
+    "genderRuleKey": 38,
+    "exception": false
   },
   {
     "english": "chain",

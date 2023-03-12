@@ -8,7 +8,8 @@ const onewordRecord: FrenchWordRecord[] = [
     english: 'string',
     french: 'fil',
     gender: 0,
-    exception: false
+    exception: false,
+    genderRuleKey: 1,
   }
 ]
 
